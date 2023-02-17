@@ -1,0 +1,81 @@
+--addons/zeros_botnet_1.3.0/lua/sh_zbf_job_config_botnet.lua
+zbf = zbf or {}
+zbf.config = zbf.config or {}
+
+zbf.config.Jobs = zbf.config.Jobs or {}
+local function AddJob(data) return table.insert(zbf.config.Jobs,data) end
+
+/*
+
+	BotNet Jobs
+
+*/
+ZBF_JOB_BOTNET_PING = AddJob({
+	type = ZBF_JOBTYPE_BOTNET,
+	name = zbf.language[ "botnet_job01_name" ],
+	desc = zbf.language[ "botnet_job01_desc" ],
+	img = Material("materials/zerochain/zbot/jobs/botnet.png"),
+	cooldown = 60,
+	ticks = 5000,
+	jobs = {
+		["Hacker"] = true,
+		["Neuro Hacker"] = true,
+	},
+	OnFinish = function(Controller,ply,IP) zbf.Controller.Attack_Ping(Controller,ply,IP) end,
+})
+
+ZBF_JOB_BOTNET_STEAL = AddJob({
+	type = ZBF_JOBTYPE_BOTNET,
+	name = zbf.language[ "botnet_job02_name" ],
+	desc = zbf.language[ "botnet_job02_desc" ],
+	img = Material("materials/zerochain/zbot/jobs/botnet.png"),
+	cooldown = 60,
+	ticks = 10000,
+	jobs = {
+		["Hacker"] = true,
+		["Neuro Hacker"] = true,
+	},
+	OnFinish = function(Controller,ply,IP) zbf.Controller.Attack_Steal(Controller,ply,IP) end,
+})
+
+ZBF_JOB_BOTNET_REBOOT = AddJob({
+	type = ZBF_JOBTYPE_BOTNET,
+	name = zbf.language[ "botnet_job03_name" ],
+	desc = zbf.language[ "botnet_job03_desc" ],
+	img = Material("materials/zerochain/zbot/jobs/botnet.png"),
+	cooldown = 60,
+	ticks = 10000,
+	jobs = {
+		["Hacker"] = true,
+		["Neuro Hacker"] = true,
+	},
+	OnFinish = function(Controller,ply,IP) zbf.Controller.Attack_Reboot(Controller,ply,IP) end,
+})
+
+ZBF_JOB_BOTNET_CRASH = AddJob({
+	type = ZBF_JOBTYPE_BOTNET,
+	name = zbf.language[ "botnet_job04_name" ],
+	desc = zbf.language[ "botnet_job04_desc" ],
+	img = Material("materials/zerochain/zbot/jobs/botnet.png"),
+	cooldown = 60,
+	ticks = 10000,
+	jobs = {
+		[ "Hacker" ] = true,
+		[ "Neuro Hacker" ] = true,
+	},
+	OnFinish = function(Controller, ply, IP) zbf.Controller.Attack_Crash(Controller, ply, IP) end,
+})
+
+ZBF_JOB_BOTNET_HIGHJACK = AddJob({
+	type = ZBF_JOBTYPE_BOTNET,
+	name = zbf.language[ "botnet_job05_name" ],
+	desc = zbf.language[ "botnet_job05_desc" ],
+	img = Material("materials/zerochain/zbot/jobs/botnet.png"),
+	cooldown = 5,
+	ticks = 2500,
+	jobs = {
+		[ "Hacker" ] = true,
+		[ "Neuro Hacker" ] = true,
+	},
+	OnFinish = function(Controller, ply, IP) zbf.Controller.Attack_Highjack(Controller, ply, IP) end,
+})

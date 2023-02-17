@@ -1,0 +1,6 @@
+--addons/zeros_botnet_1.3.0/lua/entities/zbf_controller/cl_init.lua
+include("shared.lua")
+
+function ENT:Draw()
+    zbf.Controller.OnDraw(self)
+end

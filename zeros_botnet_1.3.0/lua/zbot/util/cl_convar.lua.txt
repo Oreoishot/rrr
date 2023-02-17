@@ -1,0 +1,10 @@
+--addons/zeros_botnet_1.3.0/lua/zbot/util/cl_convar.lua
+if SERVER then return end
+
+zclib.Convar.Create("zbf_cl_bot_effects", "1", { FCVAR_ARCHIVE })
+
+zclib.Convar.Create("zbf_cl_bot_simplescreen", "0", { FCVAR_ARCHIVE })
+
+zclib.Convar.Create("zbf_cl_bot_gibs", "1", { FCVAR_ARCHIVE })
+
+zclib.Convar.Create("zbf_cl_bot_connection", "0", { FCVAR_ARCHIVE })

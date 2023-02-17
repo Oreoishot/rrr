@@ -1,0 +1,11 @@
+--addons/zeros_botnet_1.3.0/lua/zbot/bot/sh_bot_level.lua
+zbf = zbf or {}
+zbf.Bot = zbf.Bot or {}
+
+/*
+	Returns the performance value of the bot
+*/
+function zbf.Bot.GetLevelPerformance(Bot)
+	if not zbf.config.LevelSystem.enabled then return 1 end
+	return 1 + ((zbf.config.LevelSystem.max_performance / zbf.config.LevelSystem.max_level) * Bot:GetLevel())
+end

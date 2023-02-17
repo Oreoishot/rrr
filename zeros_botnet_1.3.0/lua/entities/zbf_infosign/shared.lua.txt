@@ -1,0 +1,33 @@
+--addons/zeros_botnet_1.3.0/lua/entities/zbf_infosign/shared.lua
+ENT.Type                    = "anim"
+ENT.Base                    = "base_anim"
+ENT.AutomaticFrameAdvance   = false
+ENT.PrintName               = "Info Sign"
+ENT.Author                  = "ZeroChain"
+ENT.Category                = "Zeros BotNet"
+ENT.Spawnable               = true
+ENT.AdminSpawnable          = false
+ENT.Model                   = "models/squad/sf_plates/sf_plate1x1.mdl"
+ENT.RenderGroup             = RENDERGROUP_OPAQUE
+
+function ENT:CanProperty(ply)
+    return ply:IsSuperAdmin()
+end
+
+function ENT:CanTool(ply, tab, str)
+    return ply:IsSuperAdmin()
+end
+
+function ENT:CanDrive(ply)
+    return false
+end
+
+
+function ENT:SetupDataTables()
+	self:NetworkVar("Int", 0, "CurrencyID")
+	self:NetworkVar("Float", 0, "UIScale")
+	if (SERVER) then
+		self:SetCurrencyID(0)
+		self:SetUIScale(1)
+	end
+end

@@ -1,0 +1,33 @@
+--addons/zeros_botnet_1.3.0/lua/entities/zbf_rack/shared.lua
+ENT.Type                    = "anim"
+ENT.Base                    = "base_anim"
+ENT.AutomaticFrameAdvance   = false
+ENT.PrintName               = "Rack"
+ENT.Author                  = "ZeroChain"
+ENT.Category                = "Zeros BotNet"
+ENT.Spawnable               = true
+ENT.AdminSpawnable          = false
+ENT.Model                   = "models/zerochain/props_clickfarm/zcf_rack.mdl"
+ENT.RenderGroup             = RENDERGROUP_BOTH
+
+
+function ENT:SetupDataTables()
+    self:NetworkVar("Entity", 0, "Controller")
+
+    if (SERVER) then
+        self:SetController(NULL)
+    end
+end
+
+
+function ENT:CanProperty(ply)
+    return ply:IsSuperAdmin()
+end
+
+function ENT:CanTool(ply, tab, str)
+    return ply:IsSuperAdmin()
+end
+
+function ENT:CanDrive(ply)
+    return false
+end

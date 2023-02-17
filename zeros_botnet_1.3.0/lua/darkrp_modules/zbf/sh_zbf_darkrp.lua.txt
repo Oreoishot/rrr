@@ -1,0 +1,97 @@
+--addons/zeros_botnet_1.3.0/lua/darkrp_modules/zbf/sh_zbf_darkrp.lua
+
+/*
+
+	Here we setup all the DarkRP Jobs
+
+*/
+// NOTE If you change the TEAM_ names then you would need to adjust them here too > zeros_botnet/lua/sh_zbf_hooks.lua
+
+TEAM_ZBF_MINER = DarkRP.createJob("Crypto Miner", {
+	color = Color(111, 150, 97, 255),
+	model = {"models/player/rick/rick.mdl"},
+	description = [[You mine crypto currencys.]],
+	weapons = {},
+	command = "zbl_cryptominer",
+	max = 4,
+	salary = 15,
+	admin = 0,
+	vote = false,
+	category = "Citizens",
+	hasLicense = false
+})
+
+TEAM_ZBF_RENDERFARM = DarkRP.createJob("Render Farm Manager", {
+	color = Color(111, 150, 97, 255),
+	model = {"models/player/group03/male_07.mdl"},
+	description = [[Movie Studios pay you to render out their latest films in 4k.]],
+	weapons = {},
+	command = "zbl_renderfarm",
+	max = 4,
+	salary = 15,
+	admin = 0,
+	vote = false,
+	category = "Citizens",
+	hasLicense = false
+})
+
+TEAM_ZBF_SCAMMER = DarkRP.createJob("Scammer", {
+	color = Color(111, 150, 97, 255),
+	model = {"models/player/group03/male_05.mdl"},
+	description = [[You manage systems which flood the internet with spam emails.]],
+	weapons = {},
+	command = "zbl_scammer",
+	max = 4,
+	salary = 15,
+	admin = 0,
+	vote = false,
+	category = "Gangsters",
+	hasLicense = false
+})
+
+/*
+
+	Here we setup all the DarkRP Entities
+
+*/
+
+DarkRP.createCategory{
+	name = "Bot Equipment",
+	categorises = "entities",
+	startExpanded = true,
+	color = Color(111, 150, 97, 255),
+	canSee = function(ply) return true end,
+	sortOrder = 103
+}
+
+DarkRP.createEntity("Controller", {
+	ent = "zbf_controller",
+	model = "models/zerochain/props_clickfarm/zcf_controller.mdl",
+	price = 1000,
+	max = 1,
+	cmd = "buy_zbf_controller",
+	allowed = {
+		TEAM_ZBF_MINER,
+		TEAM_ZBF_HACKER,
+		TEAM_ZBF_NEUROHACKER,
+		TEAM_ZBF_RENDERFARM,
+		TEAM_ZBF_SCAMMER
+	},
+	category = "Bot Equipment",
+})
+
+DarkRP.createEntity("Bot Rack", {
+	ent = "zbf_rack",
+	model = "models/zerochain/props_clickfarm/zcf_rack.mdl",
+	price = 1000,
+	max = 2,
+	cmd = "buy_zbf_rack",
+	allowed = {
+		TEAM_ZBF_MINER,
+		TEAM_ZBF_HACKER,
+		TEAM_ZBF_NEUROHACKER,
+		TEAM_ZBF_RENDERFARM,
+		TEAM_ZBF_SCAMMER
+	},
+	category = "Bot Equipment"
+})

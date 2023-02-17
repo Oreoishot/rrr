@@ -1,0 +1,35 @@
+--addons/zeros_botnet_1.3.0/lua/entities/zbf_controller/shared.lua
+ENT.Type                    = "anim"
+ENT.Base                    = "base_anim"
+ENT.AutomaticFrameAdvance   = false
+ENT.PrintName               = "Controller"
+ENT.Author                  = "ZeroChain"
+ENT.Category                = "Zeros BotNet"
+ENT.Spawnable               = true
+ENT.AdminSpawnable          = false
+ENT.Model                   = "models/zerochain/props_clickfarm/zcf_controller.mdl"
+ENT.RenderGroup             = RENDERGROUP_BOTH
+
+function ENT:SetupDataTables()
+	self:NetworkVar("Int", 0, "JobID")
+	self:NetworkVar("Float", 1, "JobProgress")
+	self:NetworkVar("String", 0, "TargetName")
+
+	if (SERVER) then
+		self:SetJobID(-1)
+		self:SetJobProgress(0)
+		self:SetTargetName("")
+	end
+end
+
+function ENT:CanProperty(ply)
+	return ply:IsSuperAdmin()
+end
+
+function ENT:CanTool(ply, tab, str)
+	return ply:IsSuperAdmin()
+end
+
+function ENT:CanDrive(ply)
+	return false
+end

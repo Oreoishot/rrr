@@ -1,0 +1,24 @@
+--addons/zeros_botnet_1.3.0/lua/entities/zbf_usb/shared.lua
+ENT.Type                    = "anim"
+ENT.Base                    = "base_anim"
+ENT.AutomaticFrameAdvance   = false
+ENT.PrintName               = "USB"
+ENT.Author                  = "ZeroChain"
+ENT.Category                = "Zeros BotNet"
+ENT.Spawnable               = false
+ENT.AdminSpawnable          = false
+ENT.Model                   = "models/zerochain/props_clickfarm/zcf_usb.mdl"
+ENT.RenderGroup             = RENDERGROUP_OPAQUE
+
+
+function ENT:CanProperty(ply)
+    return ply:IsSuperAdmin()
+end
+
+function ENT:CanTool(ply, tab, str)
+    return ply:IsSuperAdmin()
+end
+
+function ENT:CanDrive(ply)
+    return false
+end

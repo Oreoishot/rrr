@@ -1,0 +1,92 @@
+--addons/zeros_botnet_1.3.0/lua/zbot/util/sh_effects.lua
+zclib.NetEvent.AddDefinition("zbf_bot_damage", {
+	[1] = {
+		type = "entity"
+	}
+}, function(received)
+	local ent = received[1]
+	if not IsValid(ent) then return end
+	ent:EmitSound("zbf_bot_damage")
+	zclib.Effect.ParticleEffect("zbf_bot_damage", ent:GetPos(), ent:GetAngles())
+end)
+
+zclib.NetEvent.AddDefinition("zbf_bot_explode", {
+	[1] = {
+		type = "entity"
+	}
+}, function(received)
+	local ent = received[1]
+	if not IsValid(ent) then return end
+	if zclib.Convar.GetBool("zbf_cl_bot_gibs") then
+		ent:GibBreakClient(VectorRand(-125, 125) + Vector(0, 0, 125), zbf.Bot.GetColor(ent))
+	end
+	ent:EmitSound("zbf_bot_explode")
+	zclib.Effect.ParticleEffect("zbf_bot_destroy", ent:GetPos(), ent:GetAngles())
+end)
+
+zclib.NetEvent.AddDefinition("zbf_bot_fix", {
+	[1] = {
+		type = "entity"
+	}
+}, function(received)
+	local ent = received[1]
+	if not IsValid(ent) then return end
+	ent:EmitSound("zbf_fix")
+	zclib.Effect.ParticleEffect("zbf_bot_repair", ent:LocalToWorld(Vector(10, 0, 0)), ent:GetAngles())
+end)
+
+zclib.NetEvent.AddDefinition("zbf_bot_repair", {
+	[1] = {
+		type = "entity"
+	}
+}, function(received)
+	local ent = received[1]
+	if not IsValid(ent) then return end
+	zclib.Sound.EmitFromPosition(ent:GetPos(),"cash")
+	zclib.Effect.ParticleEffect("zbf_bot_repair", ent:LocalToWorld(Vector(10, 0, 0)), ent:GetAngles())
+end)
+
+zclib.NetEvent.AddDefinition("zbf_bot_buy", {
+	[1] = {
+		type = "vector"
+	}
+}, function(received)
+	local pos = received[1]
+	if pos == nil then return end
+	zclib.Effect.ParticleEffect("zbf_bot_buy", pos, angle_zero)
+	zclib.Sound.EmitFromPosition(pos, "cash")
+end)
+
+zclib.NetEvent.AddDefinition("zbf_rack_destroy", {
+	[1] = {
+		type = "entity"
+	}
+}, function(received)
+	local ent = received[1]
+	if not IsValid(ent) then return end
+	ent:GibBreakClient(VectorRand(-125, 125) + Vector(0, 0, 125))
+end)
+
+zclib.NetEvent.AddDefinition("zbf_Controller_destroy", {
+	[1] = {
+		type = "entity"
+	}
+}, function(received)
+	local ent = received[1]
+	if not IsValid(ent) then return end
+	ent:GibBreakClient(VectorRand(-125, 125) + Vector(0, 0, 125))
+	ent:EmitSound("zbf_bot_explode")
+	zclib.Effect.ParticleEffect("zbf_bot_destroy", ent:GetPos(), ent:GetAngles())
+end)
+
+zclib.NetEvent.AddDefinition("zbf_neuro_shield_reflect", {
+	[1] = {
+		type = "vector"
+	}
+}, function(received)
+	local pos = received[1]
+	if pos == nil then return end
+
+	zclib.Effect.ParticleEffect("zbf_neuro_shield_reflect", pos, angle_zero)
+	zclib.Sound.EmitFromPosition(pos, "zbf_neuro_shield_reflect")
+end)

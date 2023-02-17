@@ -1,0 +1,15 @@
+--addons/zeros_botnet_1.3.0/lua/zbot/util/sh_precache_particle.lua
+game.AddParticles("particles/zbf_bot.pcf")
+PrecacheParticleSystem("zbf_bot_destroy")
+PrecacheParticleSystem("zbf_bot_repair")
+PrecacheParticleSystem("zbf_bot_damage")
+PrecacheParticleSystem("zbf_bot_buy")
+
+game.AddParticles("particles/zbf_jobtype.pcf")
+PrecacheParticleSystem("zbf_jobtype_complete_vgui")
+
+game.AddParticles("particles/zbf_neuro.pcf")
+PrecacheParticleSystem("zbf_neuro_shield_reflect")
+
+game.AddParticles("particles/zbf_level.pcf")
+PrecacheParticleSystem("zbf_level_up")

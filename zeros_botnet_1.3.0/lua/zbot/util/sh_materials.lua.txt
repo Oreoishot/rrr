@@ -1,0 +1,56 @@
+--addons/zeros_botnet_1.3.0/lua/zbot/util/sh_materials.lua
+zbf = zbf or {}
+zbf.colors = zbf.colors or {}
+zbf.colors[ "green01" ] = Color(152, 195, 121, 50)
+zbf.colors[ "orange01" ] = Color(243, 116, 53, 50)
+zbf.colors[ "orange02" ] = Color(243, 116, 53)
+zbf.colors[ "orange03" ] = Color(247, 147, 26)
+
+zbf.colors[ "violett01" ] = Color(152, 86, 194)
+
+zclib.Materials.Add("web", Material("materials/zerochain/zbot/zbf_web_icon.png", "noclamp smooth"))
+zclib.Materials.Add("link", Material("materials/zerochain/zbot/zbf_link_icon.png", "noclamp smooth"))
+zclib.Materials.Add("webknot", Material("materials/zerochain/zbot/zbf_web_ip_icon.png", "noclamp smooth"))
+zclib.Materials.Add("feedoverlay", Material("materials/zerochain/zbot/zbf_feedoverlay.png", "noclamp smooth"))
+zclib.Materials.Add("repeat", Material("materials/zerochain/zbot/zbf_repeat_icon.png", "noclamp smooth"))
+zclib.Materials.Add("attack", Material("materials/zerochain/zbot/zbf_attack_icon.png", "noclamp smooth"))
+zclib.Materials.Add("defense", Material("materials/zerochain/zbot/zbf_defense_icon.png", "noclamp smooth"))
+zclib.Materials.Add("neuro", Material("materials/zerochain/zbot/zbf_brain_icon.png", "noclamp smooth"))
+zclib.Materials.Add("mine", Material("materials/zerochain/zbot/zbf_mine_icon.png", "noclamp smooth"))
+zclib.Materials.Add("bang", Material("materials/zerochain/zbot/zbf_bang_icon.png", "noclamp smooth"))
+zclib.Materials.Add("grid", Material("materials/zerochain/zbot/grid.png"))
+zclib.Materials.Add("wallet", Material("materials/zerochain/zbot/zbf_wallet.png"))
+zclib.Materials.Add("vault", Material("materials/zerochain/zbot/zbf_vault.png"))
+zclib.Materials.Add("dropcrypto", Material("materials/zerochain/zbot/zbf_dropcrypto.png"))
+zclib.Materials.Add("zbf_effect", Material("materials/zerochain/zbot/zbf_effect_icon.png"))
+zclib.Materials.Add("zbf_noeffect", Material("materials/zerochain/zbot/zbf_noeffect_icon.png"))
+
+zclib.Materials.Add("zbf_cryptopoint", Material("materials/zerochain/zbot/zbf_cryptopoint.png"))
+--addons/zeros_botnet_1.3.0/lua/zbot/util/sh_materials.lua
+zbf = zbf or {}
+zbf.colors = zbf.colors or {}
+zbf.colors[ "green01" ] = Color(152, 195, 121, 50)
+zbf.colors[ "orange01" ] = Color(243, 116, 53, 50)
+zbf.colors[ "orange02" ] = Color(243, 116, 53)
+zbf.colors[ "orange03" ] = Color(247, 147, 26)
+
+zbf.colors[ "violett01" ] = Color(152, 86, 194)
+
+zclib.Materials.Add("web", Material("materials/zerochain/zbot/zbf_web_icon.png", "noclamp smooth"))
+zclib.Materials.Add("link", Material("materials/zerochain/zbot/zbf_link_icon.png", "noclamp smooth"))
+zclib.Materials.Add("webknot", Material("materials/zerochain/zbot/zbf_web_ip_icon.png", "noclamp smooth"))
+zclib.Materials.Add("feedoverlay", Material("materials/zerochain/zbot/zbf_feedoverlay.png", "noclamp smooth"))
+zclib.Materials.Add("repeat", Material("materials/zerochain/zbot/zbf_repeat_icon.png", "noclamp smooth"))
+zclib.Materials.Add("attack", Material("materials/zerochain/zbot/zbf_attack_icon.png", "noclamp smooth"))
+zclib.Materials.Add("defense", Material("materials/zerochain/zbot/zbf_defense_icon.png", "noclamp smooth"))
+zclib.Materials.Add("neuro", Material("materials/zerochain/zbot/zbf_brain_icon.png", "noclamp smooth"))
+zclib.Materials.Add("mine", Material("materials/zerochain/zbot/zbf_mine_icon.png", "noclamp smooth"))
+zclib.Materials.Add("bang", Material("materials/zerochain/zbot/zbf_bang_icon.png", "noclamp smooth"))
+zclib.Materials.Add("grid", Material("materials/zerochain/zbot/grid.png"))
+zclib.Materials.Add("wallet", Material("materials/zerochain/zbot/zbf_wallet.png"))
+zclib.Materials.Add("vault", Material("materials/zerochain/zbot/zbf_vault.png"))
+zclib.Materials.Add("dropcrypto", Material("materials/zerochain/zbot/zbf_dropcrypto.png"))
+zclib.Materials.Add("zbf_effect", Material("materials/zerochain/zbot/zbf_effect_icon.png"))
+zclib.Materials.Add("zbf_noeffect", Material("materials/zerochain/zbot/zbf_noeffect_icon.png"))
+
+zclib.Materials.Add("zbf_cryptopoint", Material("materials/zerochain/zbot/zbf_cryptopoint.png"))

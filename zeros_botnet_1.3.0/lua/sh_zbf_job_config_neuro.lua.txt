@@ -1,0 +1,136 @@
+--addons/zeros_botnet_1.3.0/lua/sh_zbf_job_config_neuro.lua
+zbf = zbf or {}
+zbf.config = zbf.config or {}
+
+zbf.config.Jobs = zbf.config.Jobs or {}
+local function AddJob(data) return table.insert(zbf.config.Jobs,data) end
+
+/*
+
+	Neuro Hacks
+
+*/
+AddJob({
+	type = ZBF_JOBTYPE_NEURO,
+	name = zbf.language[ "neuro_job01_name" ],
+	desc = zbf.language[ "neuro_job01_desc" ],
+	img = Material("materials/zerochain/zbot/jobs/neuro.png"),
+	cooldown = 60,
+
+	// What neuro level is requiered on the botnet to perform this hack
+	neuro_reg = 100,
+
+	// Depending on the neuro hacks type, this value defines either the hacks duration or amount
+	// NOTE I wrote those values in the main config to make it easier for the end user.
+	boost_val = zbf.config.Neuro.Boost_duration,
+
+	ticks = 1000,
+	jobs = {
+		["Neuro Hacker"] = true,
+	},
+	OnFinish = function(Controller,ply,UserID)
+		zbf.Controller.Neuro_Boost(Controller,ply,UserID)
+	end,
+})
+
+AddJob({
+	type = ZBF_JOBTYPE_NEURO,
+	name = zbf.language[ "neuro_job02_name" ],
+	desc = zbf.language[ "neuro_job02_desc" ],
+	img = Material("materials/zerochain/zbot/jobs/neuro.png"),
+	ticks = 1000,
+	neuro_reg = 50,
+	boost_val = zbf.config.Neuro.Vitality_amount,
+	jobs = {
+		["Neuro Hacker"] = true,
+	},
+	OnFinish = function(Controller,ply,UserID)
+		zbf.Controller.Neuro_Vitality(Controller,ply,UserID)
+	end,
+})
+
+ZBF_JOB_NEURO_SHIELD = AddJob({
+	type = ZBF_JOBTYPE_NEURO,
+	name = zbf.language[ "neuro_job03_name" ],
+	desc = zbf.language[ "neuro_job03_desc" ],
+	img = Material("materials/zerochain/zbot/jobs/neuro.png"),
+	cooldown = 60,
+	ticks = 1000,
+	neuro_reg = 250,
+	boost_val = zbf.config.Neuro.Shield_duration,
+	jobs = {
+		["Neuro Hacker"] = true,
+	},
+	OnFinish = function(Controller,ply,UserID)
+		zbf.Controller.Neuro_Shield(Controller,ply,UserID)
+	end,
+})
+
+ZBF_JOB_NEURO_CRIPPLE = AddJob({
+	type = ZBF_JOBTYPE_NEURO,
+	name = zbf.language[ "neuro_job04_name" ],
+	desc = zbf.language[ "neuro_job04_desc" ],
+	img = Material("materials/zerochain/zbot/jobs/neuro.png"),
+	cooldown = 60,
+	ticks = 1000,
+	neuro_reg = 300,
+	boost_val = zbf.config.Neuro.Cripple_duration,
+	jobs = {
+		["Neuro Hacker"] = true,
+	},
+	OnFinish = function(Controller,ply,UserID)
+		zbf.Controller.Neuro_Cripple(Controller,ply,UserID)
+	end,
+})
+
+ZBF_JOB_NEURO_OVERHEAT = AddJob({
+	type = ZBF_JOBTYPE_NEURO,
+	name = zbf.language[ "neuro_job05_name" ],
+	desc = zbf.language[ "neuro_job05_desc" ],
+	img = Material("materials/zerochain/zbot/jobs/neuro.png"),
+	cooldown = 60,
+	ticks = 1000,
+	neuro_reg = 500,
+	boost_val = zbf.config.Neuro.Overheat_duration,
+	jobs = {
+		["Neuro Hacker"] = true,
+	},
+	OnFinish = function(Controller,ply,UserID)
+		zbf.Controller.Neuro_Overheat(Controller,ply,UserID)
+	end,
+})
+
+ZBF_JOB_NEURO_ANEURYSM = AddJob({
+	type = ZBF_JOBTYPE_NEURO,
+	name = zbf.language[ "neuro_job06_name" ],
+	desc = zbf.language[ "neuro_job06_desc" ],
+	img = Material("materials/zerochain/zbot/jobs/neuro.png"),
+	cooldown = 60,
+	ticks = 1000,
+	neuro_reg = 250,
+	boost_val = zbf.config.Neuro.Aneurysm_duration,
+	jobs = {
+		["Neuro Hacker"] = true,
+	},
+	OnFinish = function(Controller,ply,UserID)
+		zbf.Controller.Neuro_Aneurysm(Controller,ply,UserID)
+	end,
+})
+
+
+ZBF_JOB_NEURO_GROWTH = AddJob({
+	type = ZBF_JOBTYPE_NEURO,
+	name = zbf.language[ "neuro_job07_name" ],
+	desc = zbf.language[ "neuro_job07_desc" ],
+	img = Material("materials/zerochain/zbot/jobs/neuro.png"),
+	cooldown = 60,
+	ticks = 1000,
+	neuro_reg = 250,
+	boost_val = zbf.config.Neuro.Growth_duration,
+	jobs = {
+		["Neuro Hacker"] = true,
+	},
+	OnFinish = function(Controller,ply,UserID)
+		zbf.Controller.Neuro_Growth(Controller,ply,UserID)
+	end,
+})

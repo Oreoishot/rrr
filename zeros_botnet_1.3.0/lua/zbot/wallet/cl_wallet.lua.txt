@@ -1,0 +1,29 @@
+--addons/zeros_botnet_1.3.0/lua/zbot/wallet/cl_wallet.lua
+if SERVER then return end
+zbf = zbf or {}
+zbf.Wallet = zbf.Wallet or {}
+
+/*
+	Updates the player about which currencies are currently stored inside the controller
+*/
+net.Receive("zbf_Wallet_UpdateCurrency", function(len)
+	zclib.Debug_Net("zbf_Wallet_UpdateCurrency", len)
+	local ent = net.ReadEntity()
+	if not IsValid(ent) then return end
+
+	// If we got a wallet before then lets store the last state
+	if ent.zbf_Wallet then
+		ent.zbf_LastWallet = table.Copy(ent.zbf_Wallet)
+	end
+
+	ent.zbf_Wallet = {}
+
+	local count = net.ReadUInt(8)
+	for i = 1, count do
+		local id = net.ReadUInt(8)
+		local amount = math.Round(net.ReadDouble(),zbf.Currency.GetPrecision(id))
+		ent.zbf_Wallet[ id ] = amount
+	end
+
+	hook.Run("zbf_Wallet_OnCurrencyUpdated",ent,ent.zbf_Wallet)
+end)

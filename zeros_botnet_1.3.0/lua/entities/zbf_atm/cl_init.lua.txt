@@ -1,0 +1,7 @@
+--addons/zeros_botnet_1.3.0/lua/entities/zbf_atm/cl_init.lua
+include("shared.lua")
+
+function ENT:Draw()
+	self:DrawModel()
+	zbf.ATM.OnDraw(self)
+end

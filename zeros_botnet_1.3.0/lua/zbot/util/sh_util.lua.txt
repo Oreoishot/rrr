@@ -1,0 +1,20 @@
+--addons/zeros_botnet_1.3.0/lua/zbot/util/sh_util.lua
+zbf = zbf or {}
+
+function zbf.Print(msg)
+	print("[Zero´s BotNet] " .. msg)
+end
+
+/*
+	Caches and returns a lerped color depending on a percentage 1-100%
+*/
+local CachedColor = {}
+function zbf.GetPercentageColor(percent)
+	percent = math.Round(percent)
+	if CachedColor[percent] then
+		return CachedColor[percent]
+	else
+		CachedColor[percent] = zclib.util.LerpColor((1 / 100) * percent, zclib.colors["red01"], zclib.colors["green01"])
+		return CachedColor[percent]
+	end
+end

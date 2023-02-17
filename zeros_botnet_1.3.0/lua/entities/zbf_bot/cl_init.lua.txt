@@ -1,0 +1,20 @@
+--addons/zeros_botnet_1.3.0/lua/entities/zbf_bot/cl_init.lua
+include("shared.lua")
+
+function ENT:Initialize()
+    zbf.Bot.Initialize(self)
+end
+
+function ENT:Draw()
+    zbf.Bot.OnDraw(self)
+end
+
+function ENT:OnRemove()
+    zbf.Bot.OnRemove(self)
+end
+
+function ENT:Think()
+    zbf.Bot.OnThink(self)
+    self:SetNextClientThink(CurTime())
+    return true
+end

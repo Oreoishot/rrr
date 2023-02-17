@@ -1,0 +1,8 @@
+--addons/zeros_botnet_1.3.0/lua/zbot/util/player/cl_player.lua
+if SERVER then return end
+
+zclib.Hook.Add("zclib_PlayerInitialized", "zbf_zclib_PlayerInitialized", function()
+
+	// Load the players crypto Favourites
+	zbf.Currency.LoadFav()
+end)

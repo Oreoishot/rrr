@@ -1,0 +1,11 @@
+--addons/zeros_botnet_1.3.0/lua/entities/zbf_infosign/cl_init.lua
+include("shared.lua")
+
+function ENT:Initialize()
+    zbf.Sign.Initialize(self)
+end
+
+function ENT:Draw()
+	self:DrawModel()
+	zbf.Sign.OnDraw(self)
+end
